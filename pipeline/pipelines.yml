@@ -6,7 +6,7 @@ resources:
       gitProvider: myGithub                                    # <-- Change to your GitHub integration
       
   - name: MyTest
-    type: tutorials/test
+    type: resources/tutorials/test
     configuration:
       alpha: "JFrog"
       number: 42
