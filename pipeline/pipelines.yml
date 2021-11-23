@@ -6,7 +6,7 @@ resources:
       gitProvider: myGithub                                    # <-- Change to your GitHub integration
       
   - name: MyTest
-    type: resources/tutorials/test
+    type: RjSH1/jfrog-pipelines-extensions-sample/resources/tutorials/test
     configuration:
       alpha: "JFrog"
       number: 42
