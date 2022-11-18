@@ -1,0 +1,34 @@
+resources:
+  - name: MyGitHub
+    type: GitRepo
+    configuration:
+      # path: RjSH1/jfrog-pipelines-extensions-sample/pipeline    # <-- Change to your repository path
+      path: RjSH1/jfrog-pipelines-extensions-sample    # <-- Change to your repository path      
+      gitProvider: myGit                                  # <-- Change to your GitHub integration
+      
+  - name: MyTest
+    type: tutorials/test
+    configuration:
+      alpha: "JFrog"
+      number: 42
+      flag: true
+
+pipelines: 
+  - name: MyHealthCheck
+    configuration:
+      environmentVariables:
+        readOnly:
+          my_env_var: "hello" 
+    steps:
+      - name: Health_Check_Step
+        type: tutorials/HealthCheck
+        configuration:
+          healthCheckUrl: "https://jfrog.com"
+          notifyOnSuccess: false
+          notifyOnFailure: false
+          stuff: 
+           - "This is a string"
+           - "This is another string"
+          inputResources:
+           - name: MyTest
+           - name: MyGitHub
